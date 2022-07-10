@@ -54,7 +54,7 @@ public class PayLogServiceImpl extends ServiceImpl<PayLogMapper, PayLog> impleme
             m.put("trade_type", "NATIVE");
 
             //3 发送httpclient请求，传递参数xml格式，微信支付提供的固定的地址
-            HttpClient client = new HttpClient("https://api.mch.weixin.qq.com/pay/unifiedorder");
+            HttpClient client = new HttpClient("http://localhost:8864/pay/unifiedorder");
             //设置xml格式的参数
             client.setXmlParam(WXPayUtil.generateSignedXml(m,"T6m9iK73b0kn9g5v426MKfHQH7X8rKwb"));
             client.setHttps(true);
@@ -95,9 +95,9 @@ public class PayLogServiceImpl extends ServiceImpl<PayLogMapper, PayLog> impleme
             m.put("nonce_str", WXPayUtil.generateNonceStr());
 
             //2 发送httpclient
-            HttpClient client = new HttpClient("https://api.mch.weixin.qq.com/pay/orderquery");
+            HttpClient client = new HttpClient("http://localhost:8864/pay/orderquery");
             client.setXmlParam(WXPayUtil.generateSignedXml(m,"T6m9iK73b0kn9g5v426MKfHQH7X8rKwb"));
-            client.setHttps(true);
+            client.setHttps(false);
             client.post();
 
             //3 得到请求返回内容

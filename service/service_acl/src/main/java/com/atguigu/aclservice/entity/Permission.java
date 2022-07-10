@@ -13,12 +13,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- * 权限
- * </p>
- *
- * @author testjava
- * @since 2020-01-12
+ * @author xxxlive
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
